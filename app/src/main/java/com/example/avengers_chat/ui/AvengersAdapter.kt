@@ -1,4 +1,4 @@
-package com.example.avengers_chat
+package com.example.avengers_chat.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import coil.load
 import com.example.avengers_chat.base.BaseListAdapter
 import com.example.avengers_chat.data.Avenger
 import com.example.avengers_chat.databinding.ItemAvengerBinding
-import com.example.avengers_chat.utils.loadAndUnveil
+import com.example.avengers_chat.extensions.loadAndUnveil
 
 class AvengersAdapter: BaseListAdapter<Avenger, ItemAvengerBinding>(Comparator()) {
 
