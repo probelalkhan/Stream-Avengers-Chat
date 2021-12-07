@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.example.avengers_chat.data.Avenger
 
 abstract class BaseListAdapter<I : Any, VB : ViewBinding>(comparator: DiffUtil.ItemCallback<I>) :
     ListAdapter<I, BaseListAdapter.Companion.BaseViewHolder<VB>>(comparator) {
@@ -26,6 +27,8 @@ abstract class BaseListAdapter<I : Any, VB : ViewBinding>(comparator: DiffUtil.I
             }
         }
     }
+
+    fun getListItem(position: Int): I = getItem(position)
 
     companion object {
         class BaseViewHolder<VB : ViewBinding>(val binding: VB) :

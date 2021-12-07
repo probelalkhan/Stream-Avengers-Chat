@@ -1,4 +1,4 @@
-package com.example.avengers_chat
+package com.example.avengers_chat.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
