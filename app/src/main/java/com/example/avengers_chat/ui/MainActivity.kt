@@ -57,5 +57,9 @@ class MainActivity
                 .setMinScale(0.8f)
                 .build()
         )
+
+        adapter.itemClickListener = { item, position, view ->
+            AvengersChannelListActivity.startActivity(this@MainActivity, item)
+        }
     }
 }
