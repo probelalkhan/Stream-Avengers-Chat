@@ -6,8 +6,15 @@ import com.example.avengers_chat.data.AvengersRepository
 
 class ViewModelFactory(
     private val repository: AvengersRepository
-) : ViewModelProvider.NewInstanceFactory(){
+) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return MainActivityViewModel(repository) as T
+        val viewModel = when {
+            modelClass.isAssignableFrom(MainActivityViewModel::class.java)
+            -> MainActivityViewModel(repository)
+            modelClass.isAssignableFrom(AvengersChannelListViewModel::class.java)
+            -> AvengersChannelListViewModel(repository)
+            else -> throw IllegalArgumentException("Cannot create ViewModel")
+        }
+        return viewModel as T
     }
 }
