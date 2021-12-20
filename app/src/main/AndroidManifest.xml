@@ -14,6 +14,9 @@
         android:theme="@style/Theme.AvengersChat"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.MessageListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.AvengersChannelListActivity"
             android:exported="false" />
         <activity

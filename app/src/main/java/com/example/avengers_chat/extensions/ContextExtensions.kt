@@ -15,3 +15,8 @@ fun <I : Parcelable> Intent.getParcelableOrThrow(key: String): I {
     return getParcelableExtra(key) as I?
         ?: throw IllegalArgumentException("$key not found")
 }
+
+fun Intent.getIntentValueOrThrow(key: String): String {
+    return getStringExtra(key)
+        ?: throw IllegalArgumentException("$key not found")
+}
