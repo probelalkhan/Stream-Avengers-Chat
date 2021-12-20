@@ -34,18 +34,22 @@ class AvengersChannelListActivity : BaseActivity<ActivityAvengersChannelListBind
 
         channelListViewModel.bindView(binding.channelListView, this)
 
-        ChatDomain.instance().user.observe(this){ user ->
-            if(user != null){
+        ChatDomain.instance().user.observe(this) { user ->
+            if (user != null) {
                 binding.channelListHeaderView.setUser(user)
                 binding.channelListHeaderView.showOnlineTitle()
                 binding.channelListHeaderView.setOnlineTitle(getString(R.string.app_name))
             }
         }
+
+        binding.channelListView.setChannelItemClickListener { channel ->
+            MessageListActivity.startActivity(this, channel.cid)
+        }
     }
 
-    companion object{
+    companion object {
         private const val KEY_AVENGER = "key_avenger"
-        fun startActivity(context: Context, avenger: Avenger){
+        fun startActivity(context: Context, avenger: Avenger) {
             Intent(context, AvengersChannelListActivity::class.java).also {
                 it.putExtra(KEY_AVENGER, avenger)
                 context.startActivity(it)

@@ -29,4 +29,9 @@ abstract class BaseActivity<VB : ViewBinding>(
         setContentView(binding.root)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
 }
